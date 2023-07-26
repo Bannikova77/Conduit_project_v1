@@ -5,3 +5,4 @@ Test Conduit web site
 3 add CI
 4 changes in yml
 5 changes to main in CI
+6 test26.07
