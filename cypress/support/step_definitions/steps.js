@@ -1,45 +1,41 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-import TodoPage from '../../e2e/pages/todoPage/todoPage'
+import SignUpPage from '../../e2e/pages/SignUpPage/SignUpPage';
+import Homepage from '../../e2e/pages/Homepage';
 
-const todoPage = new TodoPage()
+const signUpPage = new SignUpPage();
+const homepage = new Homepage();
 
-Given('I open the Todo page app', () => {
-    cy.visit('/')
-    // cy.visit('http://stagtodo.monfared.io/')
-    cy.contains('Environment Todo')
-  })
+Given('I have a fixture named "SignUp"', () => {
+  cy.fixture('SignUp').as('fixtureData');
+});
 
-When(
-    'I add a todo with text {string}',
-    (query) => {
-      todoPage.typeInNewTodoField(query)
-      todoPage.clickAddButton(query)
-    }
-  )
+Given('I open the Conduit page app', () => {
+  //cy.visit('https://react-redux.realworld.io/#/?_k=8xgh3q')
+  cy.visit('/');
+  cy.contains('conduit');
+});
 
-When(
-    'I check the todo checkbox with index {int}',
-    (index) => {
-      todoPage.clickOnCheckBox(index)
-    }
-  )
+When('I click on the "Sign up" button', () => {
+  homepage.getSignUpButton().click();
+});
 
-Then(
-    'Verify last todo to match {string}', (value) => {
-      todoPage.getLastTodoText().then((text) => {
-        expect(text).to.include(value)
-      })
-    }
-  )
+When('I fill in the correct email', () => {
+  //const value = this.fixtureData.email;
+  cy.get('[placeholder="Email"]').type('atevs2789@gmail.com');
+});
 
-Then('Verify remaining text to match {string}', (value) => {
-  todoPage.getRemainingText().then((text) => {
-    expect(text).to.include(value)
-  })
+When('I fill in the correct password', () => {
+  //const value = this.fixtureData.password;
+  cy.get('[placeholder="Password"]').type('Bruta22ina');
+});
 
-})
+When('I click on the "Sign in" button', () => {
+  signUpPage.clickSignInButton();
+});
 
-Then('Verify checkbox with index {} to be chechked', (index) => {
-  todoPage.verifyCheckboxToBeChecked(index)
-})
+Then('Verify the error "username cant be blank" appeared', () => {
+  cy.get('.error-messages').then(($el) => {
+    expect($el.text()).to.include("username can't be blank");
+  });
+});

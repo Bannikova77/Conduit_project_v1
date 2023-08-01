@@ -14,6 +14,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
       return config;
     },
+    //"testFiles": "**/*.feature",
+    baseUrl: 'https://react-redux.realworld.io/#/?_k=8xgh3q',
 	specPattern: "**/*.feature",
   videosFolder: "cypress/reports/videos",
     screenshotsFolder: "cypress/reports/screenshots",

@@ -5,12 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:dev:chrome": "cypress run --config baseUrl=http://devtodo.monfared.io/ --browser chrome --record",
-    "cy:stag:chrome": "cypress run --config baseUrl=http://stagtodo.monfared.io/ --browser chrome --record",
-    "cy:dev:firefox": "cypress run --config baseUrl=http://devtodo.monfared.io/ --browser firefox --record",
-    "cy:stag:firefox": "cypress run --config baseUrl=http://stagtodo.monfared.io/ --browser firefox --record",
-    "cy:headed": "cypress run --config baseUrl=http://devtodo.monfared.io/ --headed",
-    "cy:test": "cypress run --config baseUrl=http://devtodo.monfared.io/"
+    "cy:chrome": "cypress run --config baseUrl=https://react-redux.realworld.io/#/?_k=8xgh3q/ --browser chrome --record",
+    "cy:firefox": "cypress run --config baseUrl=https://react-redux.realworld.io/#/?_k=8xgh3q/ --browser firefox --record",
+    "cy:headed": "cypress run --config baseUrl=https://react-redux.realworld.io/#/?_k=8xgh3q/ --headed",
+    "cy:test": "cypress run --config baseUrl=https://react-redux.realworld.io/#/?_k=8xgh3q/"
   },
   "repository": {
     "type": "git",
