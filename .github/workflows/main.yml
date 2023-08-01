@@ -1,7 +1,7 @@
-name: Run tests against STAG and PROD environment
+name: Run tests against Main environment
 on:
-    push:
-      branches: [stag, main]
+  pull_request:
+    branches: [main]
 
 jobs:
   Test-on-Chrome:
